@@ -36,7 +36,7 @@ public class MeetingRestController {
     }
 
     @RequestMapping(value = "/{meetingId}", method = RequestMethod.POST)
-    public ResponseEntity<?> addParticipants(@PathVariable long meetingId, @RequestBody String participantToAdd) {
+    public ResponseEntity<?> addParticipant(@PathVariable long meetingId, @RequestBody String participantToAdd) {
         Participant participant = participantService.findByLogin(participantToAdd);
             if (participant == null) {
                 return new ResponseEntity<>("Participant with login \"" + participantToAdd

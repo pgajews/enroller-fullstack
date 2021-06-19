@@ -50,7 +50,7 @@
                   .catch((error) => console.log(error));
             },
             addMeetingParticipant(meeting) {
-              this.$http.post(`meetings/${meeting.title}`, this.username)
+              this.$http.post(`meetings/${meeting.id}`, this.username)
                   .then(response => {
                     meeting.participants.push(this.username);
                     this.avaliableMeetings.splice(this.meetings.indexOf(meeting), 1);
