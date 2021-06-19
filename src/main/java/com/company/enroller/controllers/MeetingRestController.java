@@ -68,7 +68,7 @@ public class MeetingRestController {
                 + "\" is not assigned to this meeting", HttpStatus.NOT_FOUND);
         }
 
-        meetingService.removeParticipants(meeting, participant);
+        meetingService.removeParticipant(meeting, participant);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
