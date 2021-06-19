@@ -14,6 +14,17 @@
                    @attend="addMeetingParticipant($event)"
                    @unattend="removeMeetingParticipant($event)"
                    @delete="deleteMeeting($event)"></meetings-list>
+    <span v-if="avaliableMeetings.length == 0">
+               Brak dostępnych spotkań.
+           </span>
+    <h3 v-else>
+      Dostępne zajęcia ({{ avaliableMeetings.length }})
+    </h3>
+    <meetings-list :meetings="avaliableMeetings"
+                   :username="username"
+                   @attend="addMeetingParticipant($event)"
+                   @unattend="removeMeetingParticipant($event)"
+                   @delete="deleteMeeting($event)"></meetings-list>
   </div>
 </template>
 
@@ -26,7 +37,8 @@
         props: ['username'],
         data() {
             return {
-                meetings: []
+                meetings: [],
+                avaliableMeetings: []
             };
         },
         methods: {
